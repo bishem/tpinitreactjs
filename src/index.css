@@ -1,15 +1,250 @@
+/* unopinionated normalized cross browser styles */
 @import-normalize;
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+/* global styles By Josh's Custom CSS Reset https://www.joshwcomeau.com/css/custom-css-reset/ */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  /* word-break: break-word; */
+  overflow-wrap: break-word;
+  hyphens: auto;
+  line-height: calc(1em + 0.5rem);
+  font-family: Roboto, "Helvetica Neue", "Fira Sans", sans-serif;
 }
+
+html, body, .start, #__next {
+  height: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+#root, #__next {
+  isolation: isolate;
+}
+
+
+/* project root styles */
+#start {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+
+/* positionning rules */
+.fill-parent {
+  width: 100%;
+  height: 100%;
+}
+
+.fill-screen {
+  width: 100vw;
+  height: 100vh;
+}
+
+.parent-height {
+  height: 100%;
+}
+
+.parent-width {
+  width: 100%;
+}
+
+.height-screen {
+  height: 100vh;
+}
+
+.width-screen {
+  width: 100vw;
+}
+
+.flex {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.no-wrap {
+  flex-wrap: nowrap;
+}
+
+.content-start {
+  justify-content: flex-start;
+}
+
+.content-center {
+  justify-content: center;
+}
+
+.content-end {
+  justify-content: flex-end;
+}
+
+.content-around {
+  justify-content: space-around;
+}
+
+.content-between {
+  justify-content: space-between;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.shrink {
+  flex-shrink: 1;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.inline {
+  display: inline;
+}
+
+.push-left {
+  margin-left: auto;
+}
+
+.push-right {
+  margin-right: auto;
+}
+
+.push-top {
+  margin-top: auto;
+}
+
+.push-bottom {
+  margin-bottom: auto;
+}
+
+.push-sides {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.push-floors {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.push-all {
+  margin: auto;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.sticky {
+  position: sticky;
+}
+
+.top {
+  top: 0;
+}
+
+.right {
+  right: 0;
+}
+
+.bottom {
+  bottom: 0;
+}
+
+.left {
+  left: 0;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-top {
+  vertical-align: top;
+}
+
+.align-middle {
+  vertical-align: middle;
+}
+
+.align-bottom {
+  vertical-align: bottom;
+}
+
+.text-center {
+  text-align: center;
+  vertical-align: middle;
+}
+
