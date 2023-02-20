@@ -1,11 +1,15 @@
+/**
+* Amin MOHAMED
+* Version 1.0
+*/
 import React from "react";
-import "./Logo.css";
+import "../css/Logo.css";
 
 const AUTHOR = 'Amin MOHAMED';
 
 const Logo = () => {
   return (
-    <div className="logo flex center">{AUTHOR}</div>
+    <div className="Logo flex center">{AUTHOR}</div>
   );
 }
 
