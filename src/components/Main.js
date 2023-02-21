@@ -1,16 +1,17 @@
 /**
-* Amin MOHAMED
-* Version 1.0
-*/
+ * Amin MOHAMED
+ * Version 1.0
+ */
 import React, { Component } from 'react';
-import '../css/Main.css';
+import { PEOPLE } from '../classes';
+import Gallery from './Gallery';
 
 class Main extends Component {
   render() {
     return (
       // need parent to be flex for this to work
-      <main className='Main grow flex center'>
-        <div> I AM !!!</div>
+      <main className="Main grow flex center">
+        <Gallery list={PEOPLE} />
       </main>
     );
   }

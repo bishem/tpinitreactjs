@@ -1,0 +1,12 @@
+.Card {
+  height: 200px;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #9191a1;
+  border-radius: 20px;
+}
+
+.Card > * {
+  width: 100%;
+}
+
