@@ -1,7 +1,7 @@
 /**
-* Amin MOHAMED
-* Version 1.0
-*/
+ * Amin MOHAMED
+ * Version 1.0
+ */
 import React from 'react';
 import { Footer, Header, Main } from './components';
 import './css/App.css';
@@ -14,6 +14,6 @@ const App = () => {
       <Footer />
     </div>
   );
-}
+};
 
 export default App;
