@@ -4,7 +4,8 @@
  */
 import { API } from '.';
 
-const ENDPOINT = 'persons';
+const ENDPOINT = 'person';
+
 class PersonService {
   create(person) {
     return API.post({ endpoint: ENDPOINT, body: person });

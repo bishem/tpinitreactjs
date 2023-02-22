@@ -42,7 +42,7 @@ class Gallery extends Component {
 
   buildGallery() {
     return (
-      <div className="items grow parent-width flex center">
+      <div className="content grow parent-width flex center">
         {this.display()}
       </div>
     );
@@ -50,7 +50,7 @@ class Gallery extends Component {
 
   display() {
     return (
-      <div className="content parent-width flex center wrap">
+      <div className="items parent-width flex center wrap">
         {this.state.models.map((model) => {
           return (
             <Card

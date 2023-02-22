@@ -1,20 +1,8 @@
-.actions {
-  background-color: #d7d7e0;
-}
-
-.Gallery > .actions {
+.Gallery .actions:first-child {
+  padding: 0 ;
   box-shadow: 0 0 2px 0 #738fba;
 }
 
-.Gallery .content {
+.Gallery .items {
   padding: 25px 0;
-}
-
-.Gallery .actions button {
-  height: 30px;
-  padding: 5px 10px;
-  margin: 10px;
-  background-color: goldenrod;
-  border-radius: 15px;
-  color: darkblue;
 }

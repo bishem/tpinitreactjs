@@ -34,38 +34,43 @@ class Card extends Component {
 
   buildActions = () => {
     return (
-      <div className="actions flex space-evenly parent-widht">
-        {this.update()}
-        {this.delete()}
+      <div className="actions flex content-evenly parent-width">
+        {this.buildUpdate()}
+        {this.buildDelete()}
       </div>
     );
   };
 
-  delete() {
+  buildDelete() {
     return (
       <button
         className="delete flex center"
-        onClick={(event) => {
-          event.preventDefault();
-          this.props.service.delete(this.state.model.id).catch(console.error);
-          this.props.action.DELETE();
-        }}
+        onClick={this.delete}
       >
         delete
       </button>
     );
   }
 
-  update() {
+  buildUpdate() {
     return (
       <button
         className="update flex center"
-        onClick={() => this.props.action.UPDATE(this.state.model)}
+        onClick={this.update}
       >
         update
       </button>
     );
   }
+
+  delete = () => {
+    this.props.service
+      .delete(this.state.model.id)
+      .then(this.props.action.REFRESH)
+      .catch(console.error);
+  };
+
+  update = () => this.props.action.UPDATE(this.state.model);
 }
 
 Card.propTypes = {

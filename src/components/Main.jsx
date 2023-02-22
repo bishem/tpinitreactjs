@@ -4,16 +4,14 @@
  */
 import React, { Component } from 'react';
 import { Form, Gallery } from '.';
+import '../css/Main.css';
 import { PersonService } from '../services';
 
 class Main extends Component {
   constructor() {
     super();
     this.personService = new PersonService();
-    this.state = {
-      content: <div>Loading...</div>,
-      loading: true,
-    };
+    this.state = { content: <div>Loading...</div> };
   }
 
   componentDidMount() {
@@ -30,7 +28,6 @@ class Main extends Component {
   action = Object.freeze({
     READ: () =>
       this.setState({
-        loading: true,
         content: (
           <Gallery
             action={this.action}
@@ -40,7 +37,6 @@ class Main extends Component {
       }),
     CREATE: () =>
       this.setState({
-        loading: true,
         content: (
           <Form
             action={this.action}
@@ -50,16 +46,17 @@ class Main extends Component {
       }),
     UPDATE: (data) =>
       this.setState({
-        loading: true,
         content: (
           <Form
             model={data}
+            update={true}
             action={this.action}
             service={this.personService}
           />
         ),
       }),
-    DELETE: () => this.action.READ(),
+    REFRESH: () =>
+      this.setState({ content: <div>Loading...</div> }, this.action.READ),
   });
 }
 

@@ -11,20 +11,28 @@ class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      model: new Person({}),
+      model: new Person({}), //empty person
       update: false,
+      title: 'Add a Person',
     };
   }
 
   componentDidMount() {
-    if (this.props.model) {
-      this.setState({ model: this.props.model, update: true });
+    if (this.props.update) {
+      this.setState({
+        model: this.props.model,
+        update: true,
+        title: 'Update a Person',
+      });
     }
   }
 
   render() {
     return (
-      <div className="Form fill-parent flex content-center">
+      <div className="Form fill-parent flex column items-center">
+        <h1 className="title flex align-center center parent-width">
+          {this.state.title}
+        </h1>
         {this.buildForm()}
       </div>
     );
@@ -37,7 +45,7 @@ class Form extends Component {
         className="flex column items-center parent-width"
       >
         {this.buildFields()}
-        {this.buildButtons()}
+        {this.buildActions()}
       </form>
     );
   };
@@ -52,20 +60,52 @@ class Form extends Component {
     );
   };
 
-  buildButtons = () => {
+  buildField = ([property, value]) => {
     return (
-      <div className="buttons flex parent-width items-center content-evenly">
+      <label
+        key={property}
+        htmlFor={property}
+        className="field flex column parent-width"
+      >
+        {property}
         <input
-          type="reset"
-          value="reset"
+          id={property}
+          type="text"
+          value={value}
+          className="parent-width"
+          onChange={(event) => this.refresh(property, event)}
         />
+      </label>
+    );
+  };
+
+  buildActions = () => {
+    return (
+      <div className="actions flex parent-width center">
         <input
           type="submit"
           value="Save"
+          className="save flex center"
+        />
+        <input
+          type="reset"
+          value="reset"
+          onClick={this.props.action.READ}
+          className="reset flex center"
         />
       </div>
     );
   };
+
+  refresh(property, event) {
+    event.preventDefault();
+    this.setState({
+      model: {
+        ...this.state.model,
+        [property]: event.target.value,
+      },
+    });
+  }
 
   process = (event) => {
     event.preventDefault();
@@ -85,37 +125,6 @@ class Form extends Component {
       .create(this.state.model)
       .then(this.props.action.READ)
       .catch(console.error);
-  };
-
-  buildField = ([property, value]) => {
-    return (
-      <div
-        key={property}
-        className="field parent-width flex content-between"
-      >
-        <label
-          htmlFor={property}
-          className="flex column parent-width"
-        >
-          {property}
-          <input
-            id={property}
-            type="text"
-            value={value}
-            className="parent-width"
-            onChange={(event) => {
-              event.preventDefault();
-              this.setState({
-                model: {
-                  ...this.state.model,
-                  [property]: event.target.value,
-                },
-              });
-            }}
-          />
-        </label>
-      </div>
-    );
   };
 }
 
