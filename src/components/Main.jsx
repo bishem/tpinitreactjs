@@ -10,7 +10,7 @@ import { PersonService } from '../services';
 class Main extends Component {
   constructor() {
     super();
-    this.personService = new PersonService();
+    this.personService = PersonService();
     this.state = { content: <div>Loading...</div> };
   }
 
@@ -56,6 +56,7 @@ class Main extends Component {
         ),
       }),
     REFRESH: () =>
+      // setting content to loading allows react to detect the change and re-render
       this.setState({ content: <div>Loading...</div> }, this.action.READ),
   });
 }

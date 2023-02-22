@@ -71,7 +71,7 @@ class Form extends Component {
         <input
           id={property}
           type="text"
-          value={value}
+          defaultValue={value} // not using defaultValue will make the input uncontrolled
           className="parent-width"
           onChange={(event) => this.refresh(property, event)}
         />

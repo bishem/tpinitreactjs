@@ -2,30 +2,45 @@
  * Amin MOHAMED
  * Version 1.0
  */
+
 import { API } from '.';
 
-const ENDPOINT = 'person';
+const url = 'person';
 
 class PersonService {
-  create(person) {
-    return API.post({ endpoint: ENDPOINT, body: person });
+  constructor() {
+    this.api = API(url);
+  }
+
+  static instance = null;
+
+  static build = () => {
+    if (!this.instance) {
+      this.instance = new PersonService();
+    }
+    return this.instance;
+  };
+
+  create(body) {
+    return this.api.post({ body });
   }
 
   fetchAll() {
-    return API.fetchAll({ endpoint: ENDPOINT });
+    return this.api.fetchAll();
   }
 
   fetchOne(target) {
-    return API.fetchOne({ endpoint: ENDPOINT, target });
+    return this.api.fetchOne({ target });
   }
 
-  update(person) {
-    return API.update({ endpoint: ENDPOINT, body: person });
+  update(body) {
+    return this.api.update({ body });
   }
 
   delete(target) {
-    return API.delete({ endpoint: ENDPOINT, target });
+    return this.api.delete({ target });
   }
 }
 
-export default PersonService;
+// pseudo implementation of singleton pattern
+export default PersonService.build;

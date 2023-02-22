@@ -9,6 +9,14 @@
       "age": 27
     },
     {
+      "id": 2,
+      "nom": "solomon",
+      "prenom": "kouame",
+      "adresse": "Rue de la paix",
+      "codePostal": "75000",
+      "age": 25
+    },
+    {
       "id": 3,
       "nom": "mohamed",
       "prenom": "amin",
