@@ -15,7 +15,10 @@ const unbox = (object = {}) => {
         const value = entry[1];
 
         return (
-          <div key={property}>
+          <div
+            key={property}
+            className="parent-width"
+          >
             {property}: {value}
           </div>
         );

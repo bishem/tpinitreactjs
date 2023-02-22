@@ -48,7 +48,7 @@ input, button, textarea, select {
 }
 
 
-/* positionning rules */
+/* sizing rules */
 .fill-parent {
   width: 100%;
   height: 100%;
@@ -74,6 +74,8 @@ input, button, textarea, select {
 .width-screen {
   width: 100vw;
 }
+
+/* flexbox rules */
 
 .flex {
   display: flex;
@@ -144,6 +146,8 @@ input, button, textarea, select {
   flex-shrink: 1;
 }
 
+/* display rules */
+
 .block {
   display: block;
 }
@@ -155,6 +159,8 @@ input, button, textarea, select {
 .inline {
   display: inline;
 }
+
+/* margin rules */
 
 .push-left {
   margin-left: auto;
@@ -185,6 +191,8 @@ input, button, textarea, select {
 .push-all {
   margin: auto;
 }
+
+/* positionning rules */
 
 .fixed {
   position: fixed;
@@ -217,6 +225,8 @@ input, button, textarea, select {
 .left {
   left: 0;
 }
+
+/* text rules */
 
 .align-center {
   text-align: center;
