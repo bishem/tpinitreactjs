@@ -2,52 +2,28 @@
  * Amin MOHAMED
  * Version 1.0
  */
-import { Person } from '../classes';
+import { API } from '.';
 
-const URL = 'http://localhost:3001/persons';
+const ENDPOINT = 'persons';
 class PersonService {
-  create(person = new Person()) {
-    return fetch(`${URL}`, {
-      method: 'POST',
-      body: JSON.stringify(person),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then((response) => {
-      return response.json();
-    });
+  create(person) {
+    return API.post({ endpoint: ENDPOINT, body: person });
   }
 
   fetchAll() {
-    return fetch(`${URL}`).then((response) => {
-      return response.json();
-    });
+    return API.fetchAll({ endpoint: ENDPOINT });
   }
 
-  fetchOne(id) {
-    return fetch(`${URL}/${id}`).then((response) => {
-      return response.json();
-    });
+  fetchOne(target) {
+    return API.fetchOne({ endpoint: ENDPOINT, target });
   }
 
-  update(person = new Person()) {
-    return fetch(`${URL}/${person.id}`, {
-      method: 'PUT',
-      body: JSON.stringify(person),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then((response) => {
-      return response.json();
-    });
+  update(person) {
+    return API.update({ endpoint: ENDPOINT, body: person });
   }
 
-  delete(id) {
-    return fetch(`${URL}/${id}`, {
-      method: 'DELETE',
-    }).then((response) => {
-      return response.json();
-    });
+  delete(target) {
+    return API.delete({ endpoint: ENDPOINT, target });
   }
 }
 

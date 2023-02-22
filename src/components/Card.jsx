@@ -45,12 +45,11 @@ class Card extends Component {
     return (
       <button
         className="delete flex center"
-        onClick={() =>
-          this.props.service
-            .delete(this.state.model.id)
-            .then(this.props.action.DELETE)
-            .catch(console.error)
-        }
+        onClick={(event) => {
+          event.preventDefault();
+          this.props.service.delete(this.state.model.id).catch(console.error);
+          this.props.action.DELETE();
+        }}
       >
         delete
       </button>

@@ -5,6 +5,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Person } from '../classes';
+import '../css/Form.css';
 
 class Form extends Component {
   constructor(props) {
@@ -20,13 +21,21 @@ class Form extends Component {
       this.setState({ model: this.props.model, update: true });
     }
   }
+
   render() {
-    return <div className="form ">{this.buildForm()};</div>;
+    return (
+      <div className="Form fill-parent flex content-center">
+        {this.buildForm()}
+      </div>
+    );
   }
 
   buildForm = () => {
     return (
-      <form onSubmit={this.process}>
+      <form
+        onSubmit={this.process}
+        className="flex column items-center parent-width"
+      >
         {this.buildFields()}
         {this.buildButtons()}
       </form>
@@ -34,14 +43,18 @@ class Form extends Component {
   };
 
   buildFields = () => {
-    return Object.entries(this.state.model)
-      .filter(([key]) => key !== 'id')
-      .map(this.buildField);
+    return (
+      <div className="fields parent-width flex column center">
+        {Object.entries(this.state.model)
+          .filter(([property]) => property !== 'id')
+          .map(this.buildField)}
+      </div>
+    );
   };
 
   buildButtons = () => {
     return (
-      <>
+      <div className="buttons flex parent-width items-center content-evenly">
         <input
           type="reset"
           value="reset"
@@ -50,7 +63,7 @@ class Form extends Component {
           type="submit"
           value="Save"
         />
-      </>
+      </div>
     );
   };
 
@@ -74,27 +87,33 @@ class Form extends Component {
       .catch(console.error);
   };
 
-  buildField = (entry) => {
-    const property = entry[0];
-    const value = entry[1];
-
+  buildField = ([property, value]) => {
     return (
-      <div key={property}>
-        <label htmlFor={property}>{property}</label>
-        <input
-          id={property}
-          type="text"
-          value={value}
-          onChange={(event) => {
-            event.preventDefault();
-            this.setState({
-              model: {
-                ...this.state.model,
-                [property]: event.target.value,
-              },
-            });
-          }}
-        />
+      <div
+        key={property}
+        className="field parent-width flex content-between"
+      >
+        <label
+          htmlFor={property}
+          className="flex column parent-width"
+        >
+          {property}
+          <input
+            id={property}
+            type="text"
+            value={value}
+            className="parent-width"
+            onChange={(event) => {
+              event.preventDefault();
+              this.setState({
+                model: {
+                  ...this.state.model,
+                  [property]: event.target.value,
+                },
+              });
+            }}
+          />
+        </label>
       </div>
     );
   };

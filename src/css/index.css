@@ -117,6 +117,10 @@ input, button, textarea, select {
   justify-content: space-around;
 }
 
+.content-evenly {
+  justify-content: space-evenly;
+}
+
 .content-between {
   justify-content: space-between;
 }

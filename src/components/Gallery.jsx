@@ -32,14 +32,6 @@ class Gallery extends Component {
     );
   }
 
-  buildGallery() {
-    return (
-      <div className="items parent-width flex center wrap">
-        {this.display(this.state.models)}
-      </div>
-    );
-  }
-
   buildActions() {
     return (
       <div className="actions sticky top parent-width flex center">
@@ -48,17 +40,29 @@ class Gallery extends Component {
     );
   }
 
-  display(models) {
-    return models.map((model) => {
-      return (
-        <Card
-          key={model.id}
-          model={model}
-          action={this.props.action}
-          service={this.props.service}
-        />
-      );
-    });
+  buildGallery() {
+    return (
+      <div className="items grow parent-width flex center">
+        {this.display()}
+      </div>
+    );
+  }
+
+  display() {
+    return (
+      <div className="content parent-width flex center wrap">
+        {this.state.models.map((model) => {
+          return (
+            <Card
+              key={model.id}
+              model={model}
+              action={this.props.action}
+              service={this.props.service}
+            />
+          );
+        })}
+      </div>
+    );
   }
 
   create = () => {
