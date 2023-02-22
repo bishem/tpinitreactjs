@@ -6,19 +6,17 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Card } from '.';
 import '../css/Gallery.css';
-import { PersonService } from '../services';
 
 class Gallery extends Component {
   constructor(props) {
     super(props);
-    this.personService = new PersonService();
     this.state = {
       models: [],
     };
   }
 
   componentDidMount() {
-    this.personService
+    this.props.service
       .fetchAll()
       .then((persons) => this.setState({ models: persons }))
       .catch(console.error);
@@ -57,6 +55,7 @@ class Gallery extends Component {
           key={model.id}
           model={model}
           action={this.props.action}
+          service={this.props.service}
         />
       );
     });
@@ -76,6 +75,7 @@ class Gallery extends Component {
 
 Card.propTypes = {
   action: PropTypes.object.isRequired,
+  service: PropTypes.object.isRequired,
 };
 
 export default Gallery;

@@ -20,6 +20,7 @@ class Clock extends Component {
   componentWillUnmount() {
     clearInterval(this.tick);
   }
+
   render() {
     return (
       <div className="Clock flex center">{this.state.time.toUTCString()}</div>

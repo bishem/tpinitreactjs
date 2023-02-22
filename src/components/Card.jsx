@@ -45,7 +45,12 @@ class Card extends Component {
     return (
       <button
         className="delete flex center"
-        onClick={() => this.props.action.DELETE(this.state.model.id)}
+        onClick={() =>
+          this.props.service
+            .delete(this.state.model.id)
+            .then(this.props.action.DELETE)
+            .catch(console.error)
+        }
       >
         delete
       </button>
@@ -67,6 +72,7 @@ class Card extends Component {
 Card.propTypes = {
   model: PropTypes.object.isRequired,
   action: PropTypes.object.isRequired,
+  service: PropTypes.object.isRequired,
 };
 
 export default Card;

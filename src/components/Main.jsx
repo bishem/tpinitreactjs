@@ -31,12 +31,22 @@ class Main extends Component {
     READ: () =>
       this.setState({
         loading: true,
-        content: <Gallery action={this.action} />,
+        content: (
+          <Gallery
+            action={this.action}
+            service={this.personService}
+          />
+        ),
       }),
     CREATE: () =>
       this.setState({
         loading: true,
-        content: <Form action={this.action} />,
+        content: (
+          <Form
+            action={this.action}
+            service={this.personService}
+          />
+        ),
       }),
     UPDATE: (data) =>
       this.setState({
@@ -45,16 +55,11 @@ class Main extends Component {
           <Form
             model={data}
             action={this.action}
+            service={this.personService}
           />
         ),
       }),
-    DELETE: (id) =>
-      this.setState({ loading: true }, () => {
-        this.personService
-          .delete(id)
-          .then(this.action.READ)
-          .catch(console.error);
-      }),
+    DELETE: () => this.action.READ(),
   });
 }
 
