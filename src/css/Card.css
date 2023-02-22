@@ -1,0 +1,23 @@
+.Card {
+  min-height: 250px;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #9191a1;
+  border-radius: 20px;
+}
+
+.Card .actions {
+  margin-top: 20px;
+}
+
+@media (max-width: 512px) {
+  .Card {
+    width: 65%;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+

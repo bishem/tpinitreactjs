@@ -1,0 +1,23 @@
+.Form {
+  padding: 50px 10%;
+}
+
+.title {
+  padding: 10px;
+}
+
+.fields {
+  padding: 10px 0;
+}
+
+.field {
+  padding: 10px 0;
+}
+
+.field input[type='text'] {
+  height: 35px;
+}
+
+.Form .actions input {
+  margin-bottom: 10px;
+}
