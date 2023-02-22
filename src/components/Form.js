@@ -5,12 +5,10 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Person } from '../classes';
-import { PersonService } from '../services';
 
 class Form extends Component {
   constructor(props) {
     super(props);
-    this.personService = new PersonService();
     this.state = {
       model: new Person({}),
       update: false,
@@ -36,25 +34,22 @@ class Form extends Component {
   };
 
   buildFields = () => {
-    return Object.keys(this.state.model).map((key) => {
-      return (
-        <div key={key}>
-          <label htmlFor={key}>{key}</label>
-          <input
-            type="text"
-            id={key}
-            value={this.state.model[key]}
-          />
-        </div>
-      );
-    });
+    return Object.entries(this.state.model)
+      .filter(([key]) => key !== 'id')
+      .map(this.buildField);
   };
 
   buildButtons = () => {
     return (
       <>
-        <input type="cancel">Cancel</input>
-        <input type="submit">Save</input>
+        <input
+          type="reset"
+          value="reset"
+        />
+        <input
+          type="submit"
+          value="Save"
+        />
       </>
     );
   };
@@ -66,23 +61,49 @@ class Form extends Component {
   };
 
   update = () => {
-    this.personService
+    this.props.service
       .update(this.state.model)
       .then(this.props.action.READ)
       .catch(console.error);
   };
 
   create = () => {
-    this.personService
+    this.props.service
       .create(this.state.model)
       .then(this.props.action.READ)
       .catch(console.error);
+  };
+
+  buildField = (entry) => {
+    const property = entry[0];
+    const value = entry[1];
+
+    return (
+      <div key={property}>
+        <label htmlFor={property}>{property}</label>
+        <input
+          id={property}
+          type="text"
+          value={value}
+          onChange={(event) => {
+            event.preventDefault();
+            this.setState({
+              model: {
+                ...this.state.model,
+                [property]: event.target.value,
+              },
+            });
+          }}
+        />
+      </div>
+    );
   };
 }
 
 Form.propTypes = {
   model: PropTypes.object,
   action: PropTypes.object.isRequired,
+  service: PropTypes.object.isRequired,
 };
 
 export default Form;

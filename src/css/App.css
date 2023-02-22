@@ -1,4 +1,4 @@
-.Digi-header {
+.Header {
   background-color: #738fba;
   font-family: Helvetica, Arial, sans-serif;
   display: flex;
@@ -8,7 +8,7 @@
   color: #c03000;
 }
 
-.Digi-footer {
+.Footer {
   background-color: #bf2657;
   font-family: Helvetica, Arial, sans-serif;
   display: flex;
@@ -18,7 +18,7 @@
   color: #c03000;
 }
 
-.Digi-main {
+.Main {
   background-color: #d7d7e0;
   display: flex;
   justify-content: center;
