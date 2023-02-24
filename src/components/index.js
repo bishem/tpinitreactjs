@@ -2,11 +2,14 @@
  * Amin MOHAMED
  * Version 1.0
  */
-export { default as Card } from './Card';
-export { default as Clock } from './Clock';
-export { default as Footer } from './Footer';
-export { default as Form } from './Form';
-export { default as Gallery } from './Gallery';
-export { default as Header } from './Header';
-export { default as Logo } from './Logo';
-export { default as Main } from './Main';
+import Card from './Card';
+import Clock from './Clock';
+import Footer from './Footer';
+import Form from './Form';
+import Gallery from './Gallery';
+import Header from './Header';
+import Logo from './Logo';
+import Main from './Main';
+import Navigation from './Navigation';
+
+export { Navigation, Header, Main, Footer, Logo, Gallery, Card, Clock, Form };

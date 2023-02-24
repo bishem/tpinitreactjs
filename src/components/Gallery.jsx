@@ -2,56 +2,18 @@
  * Amin MOHAMED
  * Version 1.0
  */
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import { PersonService } from '@/services';
+import { useLoaderData } from 'react-router-dom';
 import { Card } from '.';
 import '../css/Gallery.css';
 
-class Gallery extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      models: [],
-    };
-  }
+const Gallery = () => {
+  const { models } = useLoaderData();
 
-  componentDidMount() {
-    this.props.service
-      .fetchAll()
-      .then((persons) => this.setState({ models: persons }))
-      .catch(console.error);
-  }
-
-  render() {
-    return (
-      // relative necessary to make sticky work
-      <div className="Gallery relative fill-parent flex center column wrap">
-        {this.buildActions()}
-        {this.buildGallery()}
-      </div>
-    );
-  }
-
-  buildActions() {
-    return (
-      <div className="actions sticky top parent-width flex center">
-        {this.create()}
-      </div>
-    );
-  }
-
-  buildGallery() {
-    return (
-      <div className="content grow parent-width flex center">
-        {this.display()}
-      </div>
-    );
-  }
-
-  display() {
+  this.display = function () {
     return (
       <div className="items parent-width flex center wrap">
-        {this.state.models.map((model) => {
+        {models.map((model) => {
           return (
             <Card
               key={model.id}
@@ -63,9 +25,9 @@ class Gallery extends Component {
         })}
       </div>
     );
-  }
+  };
 
-  create = () => {
+  this.create = function () {
     return (
       <button
         className="create flex center"
@@ -75,11 +37,34 @@ class Gallery extends Component {
       </button>
     );
   };
-}
 
-Card.propTypes = {
-  action: PropTypes.object.isRequired,
-  service: PropTypes.object.isRequired,
+  this.buildActions = function () {
+    return (
+      <div className="actions sticky top parent-width flex center">
+        {this.create()}
+      </div>
+    );
+  };
+
+  this.buildGallery = function () {
+    return (
+      <div className="content grow parent-width flex center">
+        {this.display()}
+      </div>
+    );
+  };
+
+  return (
+    // relative necessary to make sticky work
+    <div className="Gallery relative fill-parent flex center column wrap">
+      {this.buildActions()}
+      {this.buildGallery()}
+    </div>
+  );
+};
+
+Gallery.loader = () => {
+  return PersonService().fetchAll();
 };
 
 export default Gallery;

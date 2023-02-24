@@ -7,6 +7,8 @@ import { API } from '.';
 
 const url = 'person';
 
+function Name() {}
+
 class PersonService {
   constructor() {
     this.api = API(url);
