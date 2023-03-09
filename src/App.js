@@ -2,18 +2,12 @@
  * Amin MOHAMED
  * Version 1.0
  */
-import React from 'react';
-import { Footer, Header, Main } from './components';
-import './css/App.css';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './routes';
+import './styles/App.css';
 
-const App = () => {
-  return (
-    <div className="App flex column justify-center fill-parent">
-      <Header />
-      <Main />
-      <Footer />
-    </div>
-  );
-};
+function App() {
+  return <RouterProvider router={router} />;
+}
 
 export default App;

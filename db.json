@@ -6,15 +6,15 @@
       "prenom": "ramata",
       "adresse": "Rue de la paix",
       "codePostal": "75000",
-      "age": 27
+      "age": "230"
     },
     {
       "id": 2,
       "nom": "solomon",
       "prenom": "kouame",
       "adresse": "Rue de la paix",
-      "codePostal": "75000",
-      "age": 25
+      "codePostal": "t",
+      "age": "250"
     },
     {
       "id": 3,
@@ -23,14 +23,6 @@
       "adresse": "Rue de la paix",
       "codePostal": "75000",
       "age": 30
-    },
-    {
-      "id": 4,
-      "nom": "doukoure",
-      "prenom": "ramata",
-      "adresse": "Rue de la paix",
-      "codePostal": "75000",
-      "age": 27
     },
     {
       "id": 5,

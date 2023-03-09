@@ -1,0 +1,20 @@
+.person-form {
+  padding: 0 15%;
+}
+
+.person-form label {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.person-form input {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .person-form {
+    padding: 0 10%;
+  }
+}
