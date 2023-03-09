@@ -2,19 +2,16 @@
  * Amin MOHAMED
  * Version 1.0
  */
+import Api from './api.service';
 
-import { API } from '.';
-
-const url = 'person';
-
-function Name() {}
-
+/**
+ * service to manage persons
+ */
 class PersonService {
-  constructor() {
-    this.api = API(url);
-  }
-
+  /** @type {PersonService} */
   static instance = null;
+
+  #api = new Api('person');
 
   static build = () => {
     if (!this.instance) {
@@ -23,24 +20,24 @@ class PersonService {
     return this.instance;
   };
 
-  create(body) {
-    return this.api.post({ body });
+  create(person) {
+    return this.#api.post(person);
   }
 
   fetchAll() {
-    return this.api.fetchAll();
+    return this.#api.fetchAll();
   }
 
-  fetchOne(target) {
-    return this.api.fetchOne({ target });
+  fetchOne(id) {
+    return this.#api.fetchAt(id);
   }
 
-  update(body) {
-    return this.api.update({ body });
+  update(person) {
+    return this.#api.updateAt({ target: person.id, body: person });
   }
 
-  delete(target) {
-    return this.api.delete({ target });
+  delete(id) {
+    return this.#api.delete(id);
   }
 }
 

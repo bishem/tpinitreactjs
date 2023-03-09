@@ -1,0 +1,26 @@
+/**
+ * Amin MOHAMED
+ * Version 1.0
+ */
+.person-card {
+  min-height: 250px;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #9191a1;
+  border-radius: 20px;
+}
+
+.person-card .card-actions {
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .person-card {
+    width: 75%;
+  }
+
+  .person-card .card-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+}

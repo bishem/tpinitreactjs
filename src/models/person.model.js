@@ -2,6 +2,10 @@
  * Amin MOHAMED
  * Version 1.0
  */
+
+/**
+ * model of a person object stored in the database
+ */
 class Person {
   constructor(
     { id, nom, prenom, adresse, codePostal, age } = {

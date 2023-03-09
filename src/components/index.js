@@ -2,14 +2,9 @@
  * Amin MOHAMED
  * Version 1.0
  */
-import Card from './Card';
-import Clock from './Clock';
-import Footer from './Footer';
-import Form from './Form';
-import Gallery from './Gallery';
-import Header from './Header';
-import Logo from './Logo';
-import Main from './Main';
+import Informations from './Informations';
 import Navigation from './Navigation';
+import PersonForm from './PersonForm';
+import PersonList from './PersonList';
 
-export { Navigation, Header, Main, Footer, Logo, Gallery, Card, Clock, Form };
+export { Navigation, Informations, PersonList, PersonForm };
