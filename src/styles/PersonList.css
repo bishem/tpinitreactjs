@@ -3,7 +3,10 @@
  * Version 1.0
  */
 .person-list .list-actions {
+  background-color: whitesmoke;
   box-shadow: 2px 0 0 0 #738fba;
+  height: 50px;
+  padding: 5px;
 }
 
 .person-list .person-cards {

@@ -13,14 +13,14 @@ import PersonCard from './PersonCard';
  */
 const PersonList = ({ persons }) => {
   return (
-    <div className="person-list fill-parent flex center">
-      <div className="person-cards parent-width flex center wrap">
+    <div className="person-list relative fill-parent flex column  center">
+      <div className="person-cards parent-width flex center push-floors wrap">
         {persons.map(toPersonCard)}
-        <div className="list-actions parent-width flex content-end items-center">
-          <button className="person-create flex center">
-            <Link to="/person/create">Create</Link>
-          </button>
-        </div>
+      </div>
+      <div className="list-actions sticky bottom parent-width flex center">
+        <button className="person-create flex center">
+          <Link to="/person/create">Create</Link>
+        </button>
       </div>
     </div>
   );
